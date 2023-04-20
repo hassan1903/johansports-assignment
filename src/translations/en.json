@@ -1,3 +1,8 @@
 {
-  "Error": "Error"
+  "Error": "Error",
+  "OK": "OK",
+  "SelectCity": "Select city",
+  "SearchCity": "Search city",
+  "OpenWeather": "OpenWeather",
+  "OpenWeatherDesc": "Weather forecasts, nowcasts and history in a fast and elegant way"
 }
