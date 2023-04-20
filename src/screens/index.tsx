@@ -2,6 +2,7 @@ import { StyleSheet, View } from "react-native"
 import { ActivityIndicator, DefaultTheme } from "react-native-paper"
 import { SafeAreaProvider } from "react-native-safe-area-context"
 import { StatusBar } from "expo-status-bar"
+import MainNavigation from "navigation"
 import { deviceWidth } from "utils"
 import { useAppContext } from "context/appcontext"
 
@@ -11,6 +12,7 @@ const Main = () => {
     <>
       <SafeAreaProvider>
         <StatusBar style="light" />
+        <MainNavigation />
       </SafeAreaProvider>
       {loading ? (
         <View style={styles.loadingContainer}>
