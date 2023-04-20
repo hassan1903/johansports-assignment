@@ -1,7 +1,8 @@
 import axios from "axios"
 
+const API_KEY = "31d67d6ad5a4d9786d0c6990dc3b1ca7"
 const config = {
-  baseUrl: "",
+  baseUrl: "https://api.openweathermap.org/data/2.5/",
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json"
@@ -12,7 +13,7 @@ const base = async param => {
   return await axios({
     method: param.method,
     baseURL: config.baseUrl,
-    url: param.url,
+    url: `${param.url}&appid=${API_KEY}`,
     headers: config.headers,
     timeout: 10000
   })
