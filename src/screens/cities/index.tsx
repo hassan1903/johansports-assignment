@@ -1,9 +1,9 @@
-import { useState } from "react"
+import { Fragment, useState } from "react"
 import { ScrollView, StyleSheet } from "react-native"
 import { Divider, List, Searchbar, Text } from "react-native-paper"
+import { SafeAreaView } from "react-native-safe-area-context"
 import CityList from "api/citylist.json"
 import { i18n } from "utils"
-// import { i18n } from "utils"
 
 const Cities = ({ navigation }) => {
   // Local States
@@ -23,39 +23,49 @@ const Cities = ({ navigation }) => {
     }
   }
 
+  // Render Functions
+  const renderList = () => {
+    return cities.map((item, ind) => {
+      return (
+        <Fragment key={item.id}>
+          <List.Item
+            onPress={() => navigation.push("WeatherDetail", { cityName: item.name })}
+            title={item.name}
+            description={item.country}
+            right={props => <List.Icon {...props} icon="chevron-right" />}
+          />
+          {ind !== cities.length - 1 ? <Divider style={styles.divider} /> : null}
+        </Fragment>
+      )
+    })
+  }
+
   return (
-    <ScrollView
-      contentContainerStyle={styles.contentContainer}
-      bounces={false}
-      showsHorizontalScrollIndicator={false}
-      showsVerticalScrollIndicator={false}
-    >
-      <Text style={styles.header}>{i18n.t("OpenWeather")}</Text>
-      <Text style={styles.description}>{i18n.t("OpenWeatherDesc")}</Text>
-      <Searchbar
-        style={styles.searchbar}
-        placeholder={i18n.t("SearchCity")}
-        onChangeText={onChangeSearch}
-        value={searchQuery}
-      />
-      {cities.map((item, ind) => {
-        return (
-          <>
-            <List.Item
-              onPress={() => navigation.push("WeatherDetail", { cityName: item.name })}
-              title={item.name}
-              description={item.country}
-              right={props => <List.Icon {...props} icon="chevron-right" />}
-            />
-            {ind === cities.length - 1 ? <Divider style={styles.divider} /> : null}
-          </>
-        )
-      })}
-    </ScrollView>
+    <SafeAreaView edges={["bottom"]} style={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.contentContainer}
+        bounces={false}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
+        <Text style={styles.header}>{i18n.t("OpenWeather")}</Text>
+        <Text style={styles.description}>{i18n.t("OpenWeatherDesc")}</Text>
+        <Searchbar
+          style={styles.searchbar}
+          placeholder={i18n.t("SearchCity")}
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+        />
+        {renderList()}
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   contentContainer: {
     flexGrow: 1,
     padding: 16

@@ -1,8 +1,11 @@
 {
   "Error": "Error",
+  "ThreeHourForecast": "3-hour forecast",
   "OK": "OK",
-  "SelectCity": "Select city",
-  "SearchCity": "Search city",
   "OpenWeather": "OpenWeather",
-  "OpenWeatherDesc": "Weather forecasts, nowcasts and history in a fast and elegant way"
+  "OpenWeatherDesc": "Weather forecasts, nowcasts and history in a fast and elegant way",
+  "SearchCity": "Search city",
+  "SelectCity": "Select city",
+  "FiveDayForecast": "5-day forecast",
+  "WeekMood": "Week mood"
 }

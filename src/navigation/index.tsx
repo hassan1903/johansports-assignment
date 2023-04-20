@@ -26,7 +26,7 @@ const MainNavigation = () => (
         component={Cities}
       />
       <Stack.Screen
-        options={{ cardStyle: styles.cardStyle }}
+        options={{ cardStyle: styles.cardStyleWhite }}
         name="WeatherDetail"
         component={WeatherDetail}
       />
@@ -43,6 +43,9 @@ const styles = StyleSheet.create({
   },
   cardStyle: {
     backgroundColor: "#efefef"
+  },
+  cardStyleWhite: {
+    backgroundColor: "#ffffff"
   }
 })
 
