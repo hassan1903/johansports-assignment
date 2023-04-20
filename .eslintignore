@@ -1,0 +1,8 @@
+.expo/*
+.build/*
+.vscode/*
+dist/*
+android/*
+codesigndoc_exports/*
+ios/*
+node_modules/*
